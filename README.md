@@ -165,4 +165,133 @@ Assume that your application supports the following functionalities:
 12. Check the multiple images upload functionality.
 13. Check image quality after upload. Image quality should not be changed after upload.
 14. Check if the user is able to use/view the uploaded images.  
+
+### Test Scenarios for Sending Emails
+(Test cases for composing or validating emails are not included here)
+(Make sure to use dummy email addresses before executing email related tests)
+
+1. The email template should use standard CSS for all emails.
+2. Email addresses should be validated before sending emails.
+3. Special characters in the email body template should be handled properly.
+4. Language-specific characters (For Example, Russian, Chinese or German language characters) should be handled properly in the email body template.
+5. The email subject should not be blank.
+6. Placeholder fields used in the email template should be replaced with actual values e.g. {Firstname} {Lastname} should be replaced with an individual’s first and last name properly for all recipients.
+7. If reports with dynamic values are included in the email body, report data should be calculated correctly.
+8. The email sender’s name should not be blank.
+9. Emails should be checked by different email clients like Outlook, Gmail, Hotmail, Yahoo! mail, etc.
+10. Check to send email functionality using TO, CC and BCC fields.
+11. Check plain text emails.
+12. Check HTML format emails.
+13. Check the email header and footer for the company logo, privacy policy, and other links.
+14. Check emails with attachments.
+15. Check to send email functionality to single, multiple or distribution list recipients.
+16. Check if the reply to the email address is correct.
+17. Check to send the high volume of emails.
+### Test Scenarios for Excel Export Functionality
+1. The file should get exported with the proper file extension.
+2. The file name for the exported Excel file should be as per the standards, For Example, if the file name is using the timestamp, it should get replaced properly with an actual timestamp at the time of exporting the file.
+3. Check for date format if the exported Excel file contains the date columns.
+4. Check the number formatting for numeric or currency values. Formatting should be the same as shown on the page.
+5. The exported file should have columns with proper column names.
+6. Default page sorting should be carried out in the exported file as well.
+7. Excel file data should be formatted properly with header and footer text, date, page numbers, etc. values for all pages.
+8. Check if the data displayed on the page and exported Excel file is the same.
+9. Check export functionality when pagination is enabled.
+10. Check if the export button is showing the proper icon according to the exported file type, For Example, Excel file icon for xls files
+11. Check export functionality for files with very large size.
+12. Check export functionality for pages containing special characters. Check if these special characters are exported properly in the Excel file.
+
+### Performance Testing Test Scenarios
+1. Check if the page load time is within the acceptable range.
+2. Check if the page loads on slow connections.
+3. Check the response time for any action under light, normal, moderate, and heavy load conditions.
+4. Check the performance of database stored procedures and triggers.
+5. Check the database query execution time.
+6. Check for load testing of the application.
+7. Check for Stress testing of the application.
+8. Check CPU and memory usage under peak load conditions.
   
+### Security Testing Test Scenarios
+1. Check for SQL injection attacks.
+2. Secure pages should use the HTTPS protocol.
+3. Page crash should not reveal application or server info. The error page should be displayed for this.
+4. Escape special characters in the input.
+5. Error messages should not reveal any sensitive information.
+6. All credentials should be transferred over to an encrypted channel.
+7. Test password security and password policy enforcement.
+8. Check the application logout functionality.
+9. Check for Brute Force Attacks.
+10. Cookie information should be stored in encrypted format only.
+11. Check session cookie duration and session termination after timeout or logout.
+11. Session tokens should be transmitted over a secured channel.
+13. The password should not be stored in cookies.
+14. Test for Denial of Service attacks.
+15. Test for memory leakage.
+16. Test unauthorized application access by manipulating variable values in the browser address bar.
+17. Test file extension handling so that exe files are not uploaded or executed on the server.
+18. Sensitive fields like passwords and credit card information should not have to be autocomplete enabled.
+19. File upload functionality should use file type restrictions and also anti-virus for scanning uploaded files.
+20. Check if directory listing is prohibited.
+21. Passwords and other sensitive fields should be masked while typing.
+22. Check if forgot password functionality is secured with features like temporary password expiry after specified hours and security questions are asked before changing or requesting a new password.
+23. Verify CAPTCHA functionality.
+24. Check if important events are logged in log files.
+25. Check if access privileges are implemented correctly.
+  
+### Penetration Testing Sample Test Cases (Test Scenarios)
+Remember this is not functional testing. In Pentest, your goal is to find security holes in the system.
+
+Given below are some generic test cases and are not necessarily applicable to all applications.
+
+1. Check if the web application is able to identify spam attacks on contact forms used on the website.
+2. Proxy server – Check if network traffic is monitored by proxy appliances. The proxy server makes it difficult for hackers to get internal details of the network, thereby 
+   protecting the system from external attacks.
+3. Spam email filters – Verify if incoming and outgoing email traffic is filtered and unsolicited emails are blocked.
+4. Many email clients come with inbuilt spam filters that need to be configured as per your needs. These configuration rules can be applied to email headers, subject or body.
+5. Firewall – Make sure that the entire network or computer is protected by firewalls. A Firewall can be software or hardware that blocks unauthorized access to a system. 
+   Firewalls can prevent sending data outside the network without your permission.
+6. Try to exploit all servers, desktop systems, printers, and network devices.
+7. Verify that all usernames and passwords are encrypted and transferred over secure connections like https.
+8. Verify information stored in website cookies. It should not be in a readable format.
+9. Verify previously found vulnerabilities to see if the fix is working.
+10. Verify if there is no open port on the network.
+11. Verify all telephone devices.
+12. Verify WiFi network security.
+13. Verify all HTTP methods. PUT and Delete methods should not be enabled on a web server.
+14. Verify if the password meets the required standards. The password should be at least 8 characters long containing at least one number and one special character.
+15. Username should not be “admin” or “administrator”.
+16. The application login page should be locked upon a few unsuccessful login attempts.
+17. Error messages should be generic and should not mention specific error details like “Invalid username” or “Invalid password”.
+18. Verify if special characters, HTML tags, and scripts are handled properly as an input value.
+19. Internal system details should not be revealed in any of the error or alert messages.
+20. Custom error messages should be displayed to end-users in case of a web page crash.
+21. Verify the use of registry entries. Sensitive information should not be kept in the registry.
+22. All files must be scanned before uploading them to the server.
+23. Sensitive data should not be passed on to URLs while communicating with different internal modules of the web application.
+24. There should not be any hardcoded username or password in the system.
+25. Verify all input fields with long input strings with and without spaces.
+26. Verify if the reset password functionality is secure.
+27. Verify application for SQL Injection.
+28. Verify the application for Cross-Site Scripting.
+29. Important input validation should be done on the server-side instead of JavaScript checks on the client-side.
+30. Critical resources in the system should be available to authorized persons and services only.
+31. All access logs should be maintained with proper access permissions.
+32. Verify user session ends upon log off.
+33. Verify that directory browsing is disabled on the server.
+34. Verify that all applications and database versions are up to date.
+35. Verify URL manipulation to check if a web application is not showing any unwanted information.
+36. Verify memory leak and buffer overflow.
+37. Verify if incoming network traffic is scanned to find Trojan attacks.
+38. Verify if the system is safe from Brute Force Attacks – a trial and error method to find sensitive information like passwords.
+39. Verify if the system or network is secured from DoS (denial-of-service) attacks. Hackers can target a network or a single computer with continuous requests due to which 
+    resources on the target system get overloaded resulting in the denial of service for legit requests.
+40. Verify the application for HTML script injection attacks.
+41. Verify against COM & ActiveX attacks.
+42. Verify against spoofing attacks. Spoofing can be of multiple types – IP address spoofing, Email ID spoofing,
+43. ARP spoofing, Referrer spoofing, Caller ID spoofing, Poisoning of file-sharing networks, GPS spoofing.
+44. Check for an uncontrolled format string attack – a security attack that can cause the application to crash or execute the harmful script on it.
+45. Verify the XML injection attack – used to alter the intended logic of the application.
+46. Verify against canonicalization attacks.
+47. Verify if the error page is displaying any information that can be helpful for a hacker to enter into the system.
+48. Verify if any critical data like the password is stored in secret files on the system.
+49. Verify if the application is returning more data than is required.
